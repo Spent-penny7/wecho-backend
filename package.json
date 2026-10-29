@@ -1,0 +1,20 @@
+{
+  "name": "wecho-backend",
+  "version": "0.1.0",
+  "description": "Wecho GPS tracker ingestion service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "simulate": "node simulate.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^18.0.3",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.0"
+  }
+}
