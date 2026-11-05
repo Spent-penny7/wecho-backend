@@ -16,7 +16,7 @@ if (!trackerId) {
   process.exit(1);
 }
 
-const SERVER_URL = process.env.SERVER_URL || 'http://localhost:4000/ping';
+const SERVER_URL = process.env.SERVER_URL || 'https://wecho-backend.onrender.com/ping';
 
 // Starting point: Port Harcourt, Nigeria — change if you'd rather
 // simulate somewhere else.

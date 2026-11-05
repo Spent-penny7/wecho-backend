@@ -12,3 +12,11 @@ services:
         sync: false
       - key: FIREBASE_SERVICE_ACCOUNT_KEY
         sync: false
+      - key: TRACCAR_URL
+        sync: false
+      - key: TRACCAR_USERNAME
+        sync: false
+      - key: TRACCAR_PASSWORD
+        sync: false
+      - key: TRACCAR_SYNC_INTERVAL_MS
+        value: 10000
