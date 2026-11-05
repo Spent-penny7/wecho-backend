@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  traccar:
+    image: traccar/traccar:latest
+    container_name: traccar
+    restart: unless-stopped
+    ports:
+      - "8082:8082"      # Web interface
+      - "5055:5055"      # Default tracker port
+      - "5023:5023"      # Teltonika protocol
+      - "5013:5013"      # TK103 protocol
+      - "5025:5025"      # GPS103 protocol
+      - "5027:5027"      # Meitrack protocol
+    volumes:
+      - traccar-data:/opt/traccar/data
+      - traccar-logs:/opt/traccar/logs
+      - traccar-conf:/opt/traccar/conf
+    environment:
+      - TRACCAR_CONFIG=traccar.xml
+    networks:
+      - traccar-network
+
+  # Optional: MySQL database (Traccar uses H2 by default)
+  # Uncomment if you prefer MySQL over H2
+  # mysql:
+  #   image: mysql:8.0
+  #   container_name: traccar-mysql
+  #   restart: unless-stopped
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=your_root_password
+  #     - MYSQL_DATABASE=traccar
+  #     - MYSQL_USER=traccar
+  #     - MYSQL_PASSWORD=your_traccar_password
+  #   volumes:
+  #     - mysql-data:/var/lib/mysql
+  #   networks:
+  #     - traccar-network
+
+volumes:
+  traccar-data:
+  traccar-logs:
+  traccar-conf:
+  # mysql-data:
+
+networks:
+  traccar-network:
+    driver: bridge
